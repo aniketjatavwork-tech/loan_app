@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loan Prediction App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to right, #36d1dc, #5b86e5);
+            color: #333;
+            text-align: center;
+            padding: 40px;
+        }
+        h1 { color: white; margin-bottom: 20px; }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            text-align: left;
+            width: 400px;
+            margin: auto;
+        }
+        label { font-weight: bold; display: block; margin-top: 10px; }
+        input, select, button {
+            margin: 8px 0;
+            padding: 10px;
+            width: 100%;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+        button:hover { background: #388E3C; }
+    </style>
+</head>
+<body>
+    <h1>Loan Status Prediction</h1>
+
+    <!-- Prediction Form -->
+    <form action="/predict" method="post">
+        <label>Gender</label>
+        <select name="Gender" required>
+            <option value="0">Female</option>
+            <option value="1">Male</option>
+        </select>
+
+        <label>Married</label>
+        <select name="Married" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>Dependents</label>
+        <input type="number" name="Dependents" required>
+
+        <label>Education</label>
+        <select name="Education" required>
+            <option value="0">Not Graduate</option>
+            <option value="1">Graduate</option>
+        </select>
+
+        <label>Self Employed</label>
+        <select name="Self_Employed" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>Applicant Income</label>
+        <input type="number" name="ApplicantIncome" required>
+
+        <label>Coapplicant Income</label>
+        <input type="number" name="CoapplicantIncome" required>
+
+        <label>Loan Amount</label>
+        <input type="number" name="LoanAmount" required>
+
+        <label>Loan Amount Term (in days)</label>
+        <input type="number" name="Loan_Amount_Term" required>
+
+        <label>Credit History</label>
+        <select name="Credit_History" required>
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+        </select>
+
+        <label>Property Area</label>
+        <select name="Property_Area" required>
+            <option value="0">Rural</option>
+            <option value="1">Semiurban</option>
+            <option value="2">Urban</option>
+        </select>
+
+        <button type="submit">Predict Loan Status</button>
+    </form>
+
+    <!-- Show Popup if prediction exists -->
+    {% if popup_message %}
+    <script>
+        alert("{{ popup_message }}");
+    </script>
+    {% endif %}
+</body>
+</html>

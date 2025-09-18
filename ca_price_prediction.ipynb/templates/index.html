@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Prediction</title>
+</head>
+<body>
+    <h2>Car Price Prediction</h2>
+    <form action="/predict" method="post">
+        Year: <input type="number" name="Year"><br><br>
+        Present Price (in lakhs): <input type="text" name="Present_Price"><br><br>
+        Kms Driven: <input type="text" name="Kms_Driven"><br><br>
+        Fuel Type (0=Petrol, 1=Diesel, 2=CNG): <input type="number" name="Fuel_Type"><br><br>
+        Seller Type (0=Dealer, 1=Individual): <input type="number" name="Seller_Type"><br><br>
+        Transmission (0=Manual, 1=Automatic): <input type="number" name="Transmission"><br><br>
+        Owner (0/1/2): <input type="number" name="Owner"><br><br>
+        <button type="submit">Predict Price</button>
+    </form>
+    <br>
+    <a href="/train">Train Models</a>
+</body>
+</html>
